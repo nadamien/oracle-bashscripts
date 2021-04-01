@@ -21,7 +21,7 @@ func_fra_mon()
 {
 for sid in "${db_list[@]}"
 do
-used_perc=`sqlplus -s 'oradba/s3ns1t'@$sid <<EOF
+used_perc=`sqlplus -s 'uname/pass'@$sid <<EOF
 SET PAGESIZE 0 FEEDBACK OFF VERIFY OFF HEADING OFF ECHO OFF TRIMOUT ON
 select sum(percent_space_used) from v\\$flash_recovery_area_usage;
 EXIT;
