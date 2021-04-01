@@ -12,22 +12,6 @@ export PATH=$PATH:$ORACLE_HOME/bin
 
 ###Generic functions
 
-function usage {
-  echo ""
-  echo "Usage: site_failover.ksh -s <SOURCE_db_unique_name> -d <DESTINATION_db_unique_name> -p <SYS Password>"
-  echo ""
-  echo " s: PRIMARY DB Unique Name"
-  echo " d: FAILOVER DB Unique Name"
-  echo " p: SYS Password"
-  echo ""
-  exit 1
-}
-
-
-function check_input {
-  [ -z "${IN_DB_UNIQUE_NAME}" -o -z "${IN_STB_DB_UNIQUE_NAME}" -o -z  "${PASS_W}" ]&& usage
-}
-
 
 function bct_update {
       sqlplus -S "/ as sysdba"<< EOF
