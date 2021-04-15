@@ -29,7 +29,7 @@ EOF`
 if [[ $used_perc -gt 77 ]]
 then
         echo $sid "Fra is Filled Upto" $used_perc >> /nfs/oradump_dba/pasindu/fra_mon/fra_usg_$sysdat.txt
-        sqlplus -s oradba/s3ns1t@$sid @/nfs/oradump_dba/pasindu/fra_mon/perc_fra.sql >> /nfs/oradump_dba/pasindu/fra_mon/fra_usg_$sysdat.txt
+        sqlplus -s <ssyspriv_user>/<pass>@$sid @/nfs/oradump_dba/pasindu/fra_mon/perc_fra.sql >> /nfs/oradump_dba/pasindu/fra_mon/fra_usg_$sysdat.txt
         func_send_alert;
         ####elimanted duplication
         func_housekeep;
